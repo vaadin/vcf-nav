@@ -1,0 +1,19 @@
+{
+  "name": "@vaadin-component-factory/vcf-nav",
+  "version": "1.0.0",
+  "homepage": "https://github.com/vaadin-component-factory/vcf-nav",
+  "repository": "https://github.com/vaadin-component-factory/vcf-nav",
+  "description": "",
+  "main": "vcf-nav.js",
+  "keywords": [
+    "vaadin"
+  ],
+  "license": "Apache-2.0",
+  "files": [
+    "vcf-nav.ts",
+    "vcf-nav-item.ts"
+  ],
+  "dependencies": {
+    "@vaadin/vaadin-lumo-styles": "^23.0.0"
+  }
+}
