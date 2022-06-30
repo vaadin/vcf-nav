@@ -11,7 +11,8 @@
   "license": "Apache-2.0",
   "files": [
     "vcf-nav.ts",
-    "vcf-nav-item.ts"
+    "src/vcf-nav.ts",
+    "src/vcf-nav-item.ts"
   ],
   "dependencies": {
     "lit": "^v2.0.0",
