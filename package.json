@@ -4,7 +4,7 @@
   "homepage": "https://github.com/vaadin-component-factory/vcf-nav",
   "repository": "https://github.com/vaadin-component-factory/vcf-nav",
   "description": "",
-  "main": "vcf-nav.js",
+  "main": "vcf-nav.ts",
   "keywords": [
     "vaadin"
   ],
