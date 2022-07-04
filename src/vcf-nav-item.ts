@@ -209,7 +209,13 @@ export class NavItem extends LitElement {
   }
 
   _updateActive() {
-    this.active = document.location.pathname == this.path;
+    const pathRelativeToRoot = document.location.pathname;
+    const basePath = new URL(document.baseURI).pathname;
+    const pathWithoutBase = pathRelativeToRoot.substring(basePath.length);
+
+    const pathRelativeToBase = (basePath !== pathRelativeToRoot && pathRelativeToRoot.startsWith(basePath)) ? pathWithoutBase : pathRelativeToRoot;
+
+    this.active = pathRelativeToBase === this.path;
     this.toggleAttribute('child-active', document.location.pathname.startsWith(this.path));
 
     if (this.active) {
