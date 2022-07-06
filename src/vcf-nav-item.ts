@@ -72,6 +72,7 @@ export class NavItem extends LitElement {
       appearance: none;
       border: 0;
       margin: calc((var(--lumo-icon-size-m) - var(--lumo-size-s)) / 2) 0;
+      margin-inline-end: calc(var(--lumo-space-xs) * -1);
       padding: 0;
       background: transparent;
       font: inherit;

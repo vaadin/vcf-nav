@@ -47,6 +47,7 @@ export class Nav extends LitElement {
     }
 
     summary ::slotted([slot='label']) {
+      display: block;
       font-size: var(--lumo-font-size-s);
       color: var(--lumo-secondary-text-color);
       margin: var(--lumo-space-s);
@@ -61,9 +62,9 @@ export class Nav extends LitElement {
       content: '';
     }
 
-    :host([collapsible]) summary::after {
+    summary::after {
       font-family: lumo-icons;
-      content: var(--lumo-icons-dropdown);
+      color: var(--lumo-tertiary-text-color);
       font-size: var(--lumo-icon-size-m);
       display: inline-flex;
       align-items: center;
@@ -71,7 +72,17 @@ export class Nav extends LitElement {
       width: var(--lumo-size-s);
       height: var(--lumo-size-s);
       transition: transform 140ms;
-      margin: -0.25em 0;
+      margin: 0 var(--lumo-space-xs);
+    }
+
+    :host([collapsible]) summary::after {
+      content: var(--lumo-icons-dropdown);
+    }
+
+    @media (any-hover: hover) {
+      summary:hover::after {
+        color: var(--lumo-body-text-color);
+      }
     }
 
     :host([collapsed]) summary::after {
