@@ -210,13 +210,18 @@ export class NavItem extends LitElement {
   }
 
   _updateActive() {
-    const pathRelativeToRoot = document.location.pathname;
-    const basePath = new URL(document.baseURI).pathname;
-    const pathWithoutBase = pathRelativeToRoot.substring(basePath.length);
-
-    const pathRelativeToBase = (basePath !== pathRelativeToRoot && pathRelativeToRoot.startsWith(basePath)) ? pathWithoutBase : pathRelativeToRoot;
-
-    this.active = pathRelativeToBase === this.path;
+    const hasBaseUri = (document.baseURI != document.location.href);
+    const pathAbsolute = this.path.startsWith("/");
+    if (hasBaseUri && !pathAbsolute) {
+      const pathRelativeToRoot = document.location.pathname;
+      const basePath = new URL(document.baseURI).pathname;
+      const pathWithoutBase = pathRelativeToRoot.substring(basePath.length);
+      const pathRelativeToBase = (basePath !== pathRelativeToRoot && pathRelativeToRoot.startsWith(basePath)) ? pathWithoutBase : pathRelativeToRoot;
+      this.active = pathRelativeToBase === this.path;
+    } else {
+      // Absolute path or no base uri in use. No special comparison needed
+      this.active = document.location.pathname == this.path;
+    }
     this.toggleAttribute('child-active', document.location.pathname.startsWith(this.path));
 
     if (this.active) {
