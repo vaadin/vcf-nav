@@ -80,6 +80,34 @@ This component does not utilize the Vaadin `ThemableMixin` interface, and theref
 
 The component is meant to be styled using standard CSS features. Regular “light DOM” styling works for most things, and the `::part()` selector for more detailed styling.
 
+**Example:**
+
+`frontend/themes/[mytheme]/styles.css`
+```css
+html {
+  --vcf-nav-child-indent: var(--lumo-space-m);
+}
+
+vcf-nav {
+  padding: 0;
+  font-size: var(--lumo-font-size-m);
+  color: var(--lumo-body-text-color);
+}
+
+vcf-nav::part(label) {
+  text-transform: uppercase;
+  font-size: var(--lumo-font-size-xs);
+}
+
+vcf-nav-item {
+  border-inline-start: 2px solid transparent;
+}
+
+vcf-nav-item[active] {
+  border-inline-start-color: var(--lumo-primary-color);
+}
+```
+
 ### `<vcf-nav>`
 
 #### Parts
