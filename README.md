@@ -12,6 +12,7 @@ Vaadin Component Factory component for navigation menus. This component is a ste
 **Missing features:**
 - Material theme
 - Localization support (to provide a custom text for the expand/collapse button of a navigation item)
+- TypeScript types
 
 **Potential feature additions:**
 - Horizontal variant (“navigation bar”), with sub-items in a popup
