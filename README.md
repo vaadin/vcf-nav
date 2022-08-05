@@ -99,11 +99,11 @@ vcf-nav::part(label) {
   font-size: var(--lumo-font-size-xs);
 }
 
-vcf-nav-item {
+vcf-nav-item::part(item) {
   border-inline-start: 2px solid transparent;
 }
 
-vcf-nav-item[active] {
+vcf-nav-item[active]::part(item) {
   border-inline-start-color: var(--lumo-primary-color);
 }
 ```
