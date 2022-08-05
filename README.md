@@ -9,7 +9,7 @@ Vaadin Component Factory component for navigation menus. This component is a ste
 - Hierarchial items. A parent item can be without a path (non-navigable)
 - Supports keyboard and screen reader navigation
 
-**Missing features:**
+**Missing features (things that will be added in the official component):**
 - Material theme
 - Localization support (to provide a custom text for the expand/collapse button of a navigation item)
 - TypeScript types
