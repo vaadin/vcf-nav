@@ -112,49 +112,49 @@ vcf-nav-item[active] {
 
 #### Parts
 
-`::part(label)`
+`::part(label)`  
 The `<summary>` element that displays the label of the navigation menu.
 
-`::part(label)::after`
+`::part(label)::after`  
 The expand/collapse icon of the label element. Defaults to `var(--lumo-icons-dropdown)`.
 
 #### State attributes
 
-`[collapsible]`
+`[collapsible]`  
 Indicates that the navigation menu is user-collapsible and the pseudo element for the expand/collapse icon is visible.
 
-`[collapsed]`
+`[collapsed]`  
 Indicates that the navigation menu has been collapsed and the navigation items are hidden.
 
 ### `<vcf-nav-item>`
 
 #### Parts
 
-`::part(item)`
+`::part(item)`  
 The `<a>` element that contains the item label and prefix and suffix content.
 
-`::part(toggle-button)`
+`::part(toggle-button)`  
 The `<button>` element which contains the expand/collapse icon, if the item has child items.
 
-`::part(toggle-button)::before`
+`::part(toggle-button)::before`  
 The expand/collapse icon. Defaults to `var(--lumo-icons-dropdown)`.
 
-`::part(children)`
+`::part(children)`  
 The `<slot>` element that contains any child items. Can be styled visually.
 
 #### State attributes
 
-`[active]`
+`[active]`  
 Indicates that the item is currently the active/visible view in the application. This attribute is automatically set based on the current path/URL.
 
-`[child-active]`
+`[child-active]`  
 Indicates that a child item of this navigation item is currently active.
 
-`[expanded]`
+`[expanded]`  
 Indicates that the child items of this navigation item are visible.
 
 
 #### Custom properties
 
-`--vcf-nav-child-indent`
+`--vcf-nav-child-indent`  
 The amount of visual indentation of child items. Can be set globally in the `html` element. Defaults to `var(--lumo-space-l)`.
