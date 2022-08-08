@@ -129,6 +129,8 @@ Indicates that the navigation menu has been collapsed and the navigation items a
 
 ### `<vcf-nav-item>`
 
+> NOTE: the navigation item applies styles to any prefix element with a class name that contains `"icon"`, assuming all such elements are meant to be the item icon.
+
 #### Parts
 
 `::part(item)`  
@@ -159,3 +161,5 @@ Indicates that the child items of this navigation item are visible.
 
 `--vcf-nav-child-indent`  
 The amount of visual indentation of child items. Can be set globally in the `html` element. Defaults to `var(--lumo-space-l)`.
+
+
