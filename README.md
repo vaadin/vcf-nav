@@ -1,6 +1,6 @@
 # vcf-nav
 
-Vaadin Component Factory component for navigation menus. This component is a stepping stone towards an official Vaadin component. Please provide feedback as issues in this repository or on the Vaadin Discord chat.
+Vaadin Component Factory component for navigation menus. This component is a stepping stone towards an official Vaadin component. Please provide feedback through issues in this repository.
 
 ## Features
 
