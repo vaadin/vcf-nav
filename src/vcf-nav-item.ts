@@ -159,9 +159,6 @@ export class NavItem extends LitElement {
 
     slot[name='prefix']::slotted(:is(vaadin-icon, [class*='icon'])) {
       color: var(--lumo-contrast-60pct);
-      font-size: var(--lumo-icon-size-m);
-      min-width: 1em;
-      min-height: 1em;
     }
 
     :host([active]) slot[name='prefix']::slotted(:is(vaadin-icon, [class*='icon'])) {
