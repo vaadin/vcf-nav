@@ -220,7 +220,14 @@ export class NavItem extends LitElement {
       this.active = pathRelativeToBase === this.path;
     } else {
       // Absolute path or no base uri in use. No special comparison needed
-      this.active = document.location.pathname == this.path;
+      if (pathAbsolute) {
+        // Compare an absolute view path
+        this.active = document.location.pathname == this.path;
+      } else {
+        // Compare a relative view path (strip the starting slash)
+        this.active = document.location.pathname.substring(1) == this.path;
+      }
+
     }
     this.toggleAttribute('child-active', document.location.pathname.startsWith(this.path));
 
