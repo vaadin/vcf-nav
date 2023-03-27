@@ -62,7 +62,7 @@ Span newItems = new Span("2");
 newItems.getElement().setAttribute("aria-label", "(2 new items)");
 newItems.getElement().getThemeList().add("badge primary");
 newItems.getElement().setAttribute("slot", "suffix");
-dashboard.getElement().appendChild(newItems);
+dashboard.getElement().appendChild(newItems.getElement());
 
 AppNavItem parent = new AppNavItem("Parent");
 parent.setIcon(new Icon(VaadinIcon.FOLDER_OPEN));
