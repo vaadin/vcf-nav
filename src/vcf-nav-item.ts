@@ -12,6 +12,9 @@ export class NavItem extends LitElement {
   @property()
   path = '';
 
+  @property({reflect: true})
+  pathAlias = '';
+
   @property({ type: Boolean, reflect: true })
   expanded = false;
 
@@ -159,6 +162,9 @@ export class NavItem extends LitElement {
 
     slot[name='prefix']::slotted(:is(vaadin-icon, [class*='icon'])) {
       color: var(--lumo-contrast-60pct);
+      font-size: var(--lumo-icon-size-s);
+      min-width: 1em;
+      min-height: 1em;
     }
 
     :host([active]) slot[name='prefix']::slotted(:is(vaadin-icon, [class*='icon'])) {
@@ -212,25 +218,20 @@ export class NavItem extends LitElement {
   _updateActive() {
     const hasBaseUri = (document.baseURI != document.location.href);
     const pathAbsolute = this.path.startsWith("/");
+    const pathAliasArr = this.pathAlias.split(",");
     if (hasBaseUri && !pathAbsolute) {
       const pathRelativeToRoot = document.location.pathname;
       const basePath = new URL(document.baseURI).pathname;
       const pathWithoutBase = pathRelativeToRoot.substring(basePath.length);
       const pathRelativeToBase = (basePath !== pathRelativeToRoot && pathRelativeToRoot.startsWith(basePath)) ? pathWithoutBase : pathRelativeToRoot;
-      this.active = pathRelativeToBase === this.path;
+      this.active = pathRelativeToBase === this.path ||
+                    pathAliasArr.filter((alias) => pathRelativeToBase === alias).length > 0;
     } else {
       // Absolute path or no base uri in use. No special comparison needed
-      if (pathAbsolute) {
-        // Compare an absolute view path
-        this.active = document.location.pathname == this.path;
-      } else {
-        // Compare a relative view path (strip the starting slash)
-        this.active = document.location.pathname.substring(1) == this.path;
-      }
-
+      this.active = document.location.pathname == this.path ||
+                    pathAliasArr.filter((alias) => document.location.pathname == alias).length > 0;
     }
-    this.toggleAttribute('child-active', document.location.pathname.startsWith(this.path));
-
+    this.toggleAttribute('child-active', document.location.pathname.startsWith(this.path) || pathAliasArr.filter((alias) => document.location.pathname.startsWith(alias)).length > 0);
     if (this.active) {
       this.expanded = true;
     }
