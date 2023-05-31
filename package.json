@@ -4,18 +4,31 @@
   "homepage": "https://github.com/vaadin/vcf-nav",
   "repository": "https://github.com/vaadin/vcf-nav",
   "description": "",
-  "main": "vcf-nav.ts",
+  "main": "vcf-nav.js",
+  "module": "vcf-nav.js",
+  "type": "module",
   "keywords": [
     "vaadin"
   ],
   "license": "Apache-2.0",
   "files": [
-    "vcf-nav.ts",
-    "src/vcf-nav.ts",
-    "src/vcf-nav-item.ts"
+    "vcf-nav.js",
+    "vcf-nav.d.ts",
+    "src/vcf-nav.js",
+    "src/vcf-nav.d.ts",
+    "src/vcf-nav-item.js",
+    "src/vcf-nav-item.d.ts"
   ],
+  "scripts": {
+    "clean": "rimraf -g *.js *.d.ts *.map src/**/*.js src/**/*.d.ts src/**/*.map",
+    "prepare": "tsc"
+  },
   "dependencies": {
-    "lit": "^v2.0.0",
-    "@vaadin/vaadin-lumo-styles": "^v23.0.0"
+    "@vaadin/vaadin-lumo-styles": "^v23.0.0",
+    "lit": "^v2.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.1",
+    "typescript": "^5.0.4"
   }
 }
