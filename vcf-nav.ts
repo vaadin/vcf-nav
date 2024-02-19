@@ -1,2 +1,2 @@
-import './src/vcf-nav.js';
-import './src/vcf-nav-item.js';
+import './src/vcf-nav';
+import './src/vcf-nav-item';
